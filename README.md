@@ -1,38 +1,32 @@
-# create-svelte
+Todo :
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+- API Deezer And Spotify
+- API Youtube
+- Frontend
 
-## Creating a project
+API requirements :
 
-If you're seeing this, you've probably already done this step. Congrats!
+users/id : get user by id
+users/id/playlists : get playlists from user by id
+playlists/id : get playlist by id
+playlists/id/tracks : get tracks from playlist by id
+tracks /id : get track by id
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+user model : {
+id : string,
+name : string,
+image : string,
+}
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+playlist model : {
+id : string,
+name : string,
+image : string,
+}
 
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+track model : {
+id : string,
+name : string,
+image : string,
+preview_url : string,
+}
