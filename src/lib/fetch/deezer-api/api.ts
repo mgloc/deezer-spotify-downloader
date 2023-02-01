@@ -83,3 +83,16 @@ export const fetchPlaylistTracks = async (id: string): Promise<Track[]> => {
 		image_url: track.album.cover
 	}));
 };
+
+export const searchTracks = async (query: string): Promise<Track[]> => {
+	const response = await axios.get(`https://api.deezer.com/search?q=track:"${query}"`);
+	if (getStatus(response) !== Status.OK) {
+		throw new Error(getStatus(response));
+	}
+	const data = response.data;
+	return data.data.map((track: any) => ({
+		id: track.id,
+		name: track.title,
+		image_url: track.album.cover
+	}));
+};

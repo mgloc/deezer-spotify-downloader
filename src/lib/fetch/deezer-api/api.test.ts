@@ -8,7 +8,8 @@ import {
 	fetchUserPlaylists,
 	fetchPlaylist,
 	fetchTrack,
-	fetchPlaylistTracks
+	fetchPlaylistTracks,
+	searchTracks
 } from './api';
 
 // Types to test
@@ -70,5 +71,15 @@ describe('Deezer API', async () => {
 	it(`fetch playlist tracks ${validPlaylistId} and expect results`, async () => {
 		const tracks = await fetchPlaylistTracks(validPlaylistId);
 		expectTypeOf(tracks).toEqualTypeOf<Track[]>();
+	});
+
+	// Tests on searchTracks
+	it(`search tracks and expect results`, async () => {
+		const tracks = await searchTracks('harder');
+		expectTypeOf(tracks).toEqualTypeOf<Track[]>();
+	});
+	it(`search tracks and expect empty`, async () => {
+		const tracks = await searchTracks('dzdzfezeezfz');
+		expect(tracks).toEqual([]);
 	});
 });
