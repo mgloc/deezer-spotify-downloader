@@ -9,7 +9,6 @@ export type Playlist = {
 	image_url?: string;
 	track_count?: number;
 };
-
 export type Track = {
 	id: string;
 	name: string;
