@@ -1,0 +1,36 @@
+name: Runs All Unit tests
+
+on:
+  push:
+    branches: ['master']
+  pull_request:
+    branches: ['master']
+
+jobs:
+  test:
+    name: run test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Chekout
+        uses: actions/checkout@v3
+
+      - name: wtf are we ?
+        run: ls
+
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      # Vitest test
+      - name: Run vitest unit tests
+        run: npm run test:unit
+
+      # Playwright test
+      - name: Run playwright test
+        run: npm run test
