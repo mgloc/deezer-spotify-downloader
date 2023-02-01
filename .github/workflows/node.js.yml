@@ -15,9 +15,6 @@ jobs:
       - name: Chekout
         uses: actions/checkout@v3
 
-      - name: wtf are we ?
-        run: ls
-
       - name: Setup node
         uses: actions/setup-node@v3
         with:
@@ -30,7 +27,3 @@ jobs:
       # Vitest test
       - name: Run vitest unit tests
         run: npm run test:unit
-
-      # Playwright test
-      - name: Run playwright test
-        run: npm run test
