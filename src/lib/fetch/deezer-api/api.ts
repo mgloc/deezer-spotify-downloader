@@ -1,20 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { type User, type Playlist, type Track, Status } from '../types';
-import axios, { type AxiosResponse } from 'axios';
+import { getStatus } from '../axios_tools';
+import axios from 'axios';
 
-const getStatus = (response: AxiosResponse): Status => {
-	if (response.status === 404) {
-		return Status.NOT_FOUND;
-	} else if (response.status === 500) {
-		return Status.INTERNAL_SERVER_ERROR;
-	} else {
-		const data = response.data;
-		if (data.error !== undefined) {
-			return Status.NOT_FOUND;
-		}
-		return Status.OK;
-	}
-};
+// Deezer API
 
 export const fetchUser = async (id: string): Promise<User> => {
 	const response = await axios.get(`https://api.deezer.com/user/${id}`);
