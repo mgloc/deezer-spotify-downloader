@@ -21,3 +21,8 @@ export enum Status {
 	NOT_FOUND = 'NOT_FOUND',
 	INTERNAL_SERVER_ERROR = 'INTERNAL_SERVER_ERROR'
 }
+
+export type YoutubeVideo = {
+	id: string;
+	title: string;
+};
