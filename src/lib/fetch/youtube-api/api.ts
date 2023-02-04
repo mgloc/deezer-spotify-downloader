@@ -4,7 +4,6 @@ import fs from 'fs';
 
 import type { YoutubeVideo } from '../types';
 import { Status } from '../types';
-import { expect } from 'vitest';
 
 export async function searchForYoutubeVideo(query: string): Promise<YoutubeVideo> {
 	const filters = await ytsr.getFilters(query);

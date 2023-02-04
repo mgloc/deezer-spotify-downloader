@@ -19,6 +19,6 @@ describe('Youtube API', async () => {
 		const outputPath = './downloads/test.mp4';
 		downloadAudioFromVideo(testDownload, outputPath);
 		// Expect a none empty file to be created at outputPath
-		expect(fs.readFileSync(outputPath).length).toBeGreaterThan(-1);
+		expect(fs.readFileSync(outputPath).length).toBeGreaterThan(0);
 	});
 });
